@@ -82,7 +82,7 @@ void GetAddresses()
 	if (!localPlayer.base || !localMount.base || !PlayerNOP)
 	{
 		ConsoleSetup();
-		std::cout << "Error finding addresses. " << localPlayer.base << " " << localMount.base << std::endl;
+		std::cout << "Error finding addresses." << std::endl;
 	}
 }
 
