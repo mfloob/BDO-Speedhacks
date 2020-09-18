@@ -70,19 +70,12 @@ void GetAddresses()
 		auto playerOffset = FindPattern(GetModuleHandleW(0), (unsigned char*)"\x48\x8B\x1D\x00\x00\x00\x00\x48\x85\xDB\x0F\x84\x00\x00\x00\x00\xE8\x00\x00\x00\x00\x80\x78\x20\x00", "xxx????xxxxx????x????xxxx");																			   
 		auto player = Read<UINT32>(playerOffset + 0x3);
 		localPlayer.base = player + playerOffset + 0x7;
-		//std::cout << std::hex << localPlayer.base << std::endl;
 		auto mountOffset = FindPattern(GetModuleHandleW(0), (unsigned char*)"\x4C\x8B\x25\x00\x00\x00\x00\x4D\x85\xE4\x0F\x84\x00\x00\x00\x00\x41\x8B\x8C\x24\x00\x00\x00\x00", "xxx????xxxxx????xxxx????"); //48 8B 1D ? ? ? ? 48 85 DB 0F 84 ? ? ? ? 8B 8B
 		auto mount = Read<UINT32>(mountOffset + 0x3);
 		localMount.base = mount + mountOffset + 0x7;
-		//std::cout << std::hex << localMount.base << std::endl;
-
 
 		PlayerNOP = FindPattern(GetModuleHandleW(0), (unsigned char*)"\x42\x89\xB4\xBF\x00\x00\x00\x00", "xxxx????"); //89 B4 87 ? ? ? ? 44 89 A4 87 ? ? ? ?
-		//std::cout << std::hex << PlayerNOP << std::endl;
 		MountNOP = FindPattern(GetModuleHandleW(0), (unsigned char*)"\x41\x89\x84\x8B\x00\x00\x00\x00", "xxxx????");
-
-		//std::cout << std::hex << MountNOP << std::endl;
-		//std::cout << "Done" << std::endl;
 	}
 
 	catch (exception e) {}
@@ -142,7 +135,7 @@ void RenderMenu()
 		ImGui::Text("");
 		ImGui::Text("");
 		ImGui::Text("");
-		ImGui::Text("Made by floob for nerds with small pp");
+		ImGui::Text("Made by floob");
 
 		ImGui::End();
 	}
